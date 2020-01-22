@@ -1,0 +1,26 @@
+﻿@Scripts.Render("~/bundles/modernizr")
+@Scripts.Render("~/bundles/jquery")
+<button id="get_text">Check text</button> <br />
+
+<div id="output_result">
+
+</div>
+<a href="~/files/data.txt">data</a>
+
+<script>
+    $('#get_text').click(function (event) {
+
+        $.ajax({
+            url: "/Bot/TextTest",
+            type: 'POST',
+            data: 'some data',
+            success: function (d) {
+                //alert('success');
+                if (d.status === "OK") {
+                    console.log(d);
+                }
+            }
+        });
+
+    })
+</script>
